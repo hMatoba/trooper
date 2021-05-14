@@ -19,7 +19,7 @@ class Processer:
         while True:
             ret, frame = self.cap_cam.read()
             if not ret:
-                exit(1)
+                break
 
             cv2.imshow(WINDOW_NAME, frame)
             gray_scale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -37,8 +37,8 @@ class Processer:
 
             info = get_item_info(code)
             if info is None:
-                return
-
+                continue
+            
             keyboard.write(info)
             keyboard.send('enter')
             have_read.append(code)
