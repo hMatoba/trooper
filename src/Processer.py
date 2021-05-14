@@ -19,7 +19,7 @@ class Processer:
         while True:
             ret, frame = self.cap_cam.read()
             if not ret:
-                break
+                continue
 
             cv2.imshow(WINDOW_NAME, frame)
             gray_scale = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
